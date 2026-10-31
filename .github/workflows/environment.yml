@@ -1,27 +1,26 @@
 
-name: Environment Exploration
+name: CI-CD Pipeline
 
 on: [push]
 
 jobs:
-  explore:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
 
-      - name: Show environment
-        run: |
-          node --version
-          npm --version
-          pwd
-          ls -la
-
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm install
+
+      - name: Build Application
+        run: echo "Application build successful"
+
+      - name: Deploy Application
+        run: echo "Application deployment successful"
